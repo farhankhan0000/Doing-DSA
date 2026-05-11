@@ -1,42 +1,29 @@
 #include <iostream>
 #include <string>
-using namespace std;
+using  namespace std;
 
 class Student{
-    private:
-        string name;
-        int rollNo;
-        float marks;
+public:
+    string name;
+    int rollNo;
+};
 
-    public:
-         void getData(){
-            cout<<" Enter Name: ";
-            cin>>name;
-            cout<<" Enter roll no: ";
-            cin>>rollNo;
-            cout<<" Enter marks: ";
-            cin>>marks;
-         }
+class Teacher{
+public:
+    string subject;
+    double salary;
+};
 
-    void displayData(){
-        cout<<"\nStudent Details"<<endl;
-        cout<<"Name: "<<name<<endl;
-        cout<<"Roll Number: "<<rollNo<<endl;
-        cout<<"Marks: "<<marks<<endl;
-    }
-
+class TA: public Student, public Teacher{
 
 };
 
 int main(){
-    Student s1, s2;
-    cout<<"Enter details of Student 1: \n";
-    s1.getData();
-
-    cout<<"Enter details of student 2: \n";
-    s2.getData();
-
-    s1.displayData();
-    s2.displayData();
+    TA s1;
+    s1.name = "Khan Sahab";
+    s1.subject = "Computer Science";
+    cout<<s1.name<<endl;
+    cout<<s1.subject<<endl;
     return 0;
 }
+
