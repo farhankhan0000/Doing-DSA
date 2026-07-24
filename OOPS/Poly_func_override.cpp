@@ -27,8 +27,9 @@ public:
 int main(){
     Parent p1;
     Child c1;
+    Parent *ptr = &c1;
     c1.getInfo();
     p1.getInfo();
-    c1.hello();
+    ptr->hello();
 
 }

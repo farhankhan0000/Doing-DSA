@@ -2,19 +2,19 @@
 #include <string>
 using namespace std;
 
-class shape{// abstract class
-    virtual void draw() = 0; // pure virutal function
+class Shape{
+    public:
+        virtual void shape() = 0;
 };
 
-class circle: public shape{
-public:
-    void draw(){
-        cout<<"Drawing circle\n";
+class Circle: public Shape{
+    public: 
+    virtual void shape(){
+        cout<<"Circle shape";
     }
 };
 
 int main(){
-circle c1;
-c1.draw();
-return 0;
+    Circle c;
+    c.shape();
 }
