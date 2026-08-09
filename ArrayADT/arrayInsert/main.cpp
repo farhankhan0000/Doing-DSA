@@ -8,16 +8,19 @@ struct Array
     int length;
 };
 
-void insertElement(struct Array arr, int num){
-    int index = 4;
-    for (int i = arr.length; i < index; i--)
+void insertElement(Array &arr, int index, int num){
+    if(index >= 0 && index <= arr.length){
+        for (int i = arr.length; i > index; i--)
     {
         arr.A[i] = arr.A[i-1];
     }
     arr.A[index] = num;
+    arr.length++;
+    }
+    
 }
 
-void printArray(struct Array arr){
+void printArray(Array arr){
     for (int i = 0; i < arr.length; i++)
     {
         cout<<arr.A[i]<<endl;
@@ -32,14 +35,19 @@ int main (){
     arr.A = new int[arr.size];
     int n;
     cout<<"Enter the number of elements in the array \n";
+    cin>>n;
+    cout<<"Enter the elements";
 
     for (int i = 0; i < n; i++)
     {
         cin>>arr.A[i];
     }
     arr.length = n;
-    insertElement(arr, 15);
     printArray(arr);
+    insertElement(arr,4, 15);
+    printArray(arr);
+
+    delete[] arr.A;
 
     return 0;
     
