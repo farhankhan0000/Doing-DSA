@@ -2,20 +2,37 @@
 using namespace std;
 
 
+// int binarySearch(int arr[], int L, int H, int key){
+//     while(L <= H){
+//         int mid = (L+H)/2;
+//         if(arr[mid] == key){
+//             return mid;
+//         }
+//         else if(arr[mid] < key){
+//             L = mid+1;
+//         }
+//         else{
+//             H = mid-1;
+//         }
+//     }
+//     return -1;
+// }
+
 int binarySearch(int arr[], int L, int H, int key){
-    while(L <= H){
-        int mid = (L+H)/2;
-        if(arr[mid] == key){
-            return mid;
+    if(L <= H){
+        int M = (L+H)/2;
+        if(arr[M] == key){
+            return M;
         }
-        else if(arr[mid] < key){
-            L = mid+1;
+        else if(arr[M] < key){
+            return binarySearch(arr, M+1, H, key);
         }
         else{
-            H = mid-1;
+            return binarySearch(arr, L, M-1, key);
         }
     }
     return -1;
+    
 }
 
 int main(){
