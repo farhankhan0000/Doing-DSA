@@ -58,7 +58,7 @@ int avg_all_elements(int arr[], int length){
     {
         sum += arr[i];
     }
-    return sum/length;
+    return float(sum)/length;
 }
 
 struct Array
