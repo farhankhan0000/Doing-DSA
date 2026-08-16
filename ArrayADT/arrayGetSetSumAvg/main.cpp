@@ -1,6 +1,28 @@
 #include <iostream>
 using namespace std;
 
+int get_max(int arr[], int length){
+    int max = arr[0];
+    for (int i = 0; i < length; i++)
+    {
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int get_min(int arr[], int length){
+    int min = arr[0];
+    for (int i = 0; i < length; i++)
+    {
+        if(arr[i] < min){
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
 int get_element(int arr[],int index,  int length){
     if(index >= 0 && index < length){
         return arr[index];
