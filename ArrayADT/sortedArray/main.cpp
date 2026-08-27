@@ -8,6 +8,12 @@ struct Array
     int length;
 };
 
+void swap(struct Array *arr, int i, int j){
+    int temp = arr->A[i];
+    arr->A[i] = arr->A[j];
+    arr->A[j] = temp;
+}
+
 void Display(struct Array arr){
     int i;
     cout<<"\nElements are\n";
@@ -28,6 +34,24 @@ void insertElementInSorted(struct Array *arr, int x){
     }
     arr->A[j+1] = x;
     arr->length ++;
+}
+
+void arrangement(struct Array *arr){
+    int i = 0;
+    int j = arr->length - 1;
+    while(i < j){
+        while (i < j && arr->A[i] < 0)
+        {
+            i++;
+        }
+        while (i < j && arr->A[j] > 0)
+        {
+            j--;
+        }
+        if(i < j){
+            swap(arr, i, j);
+        }
+    }
 }
 
 int isSorted(struct Array arr){
