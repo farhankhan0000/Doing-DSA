@@ -9,17 +9,26 @@ struct Array
 };
 
 void setUniouUnsorted(struct Array *arr1, struct Array *arr2, struct Array *arr3){
+    int k = 0;
     for (int i = 0; i < arr1->length; i++)
     {
-        arr3->A[i] = arr1->A[i];
+        arr3->A[k++] = arr1->A[i];
     }
-    int j  = arr1->length + 1;
-    for (int i = 0; i < arr1->length; i++)
+    for (int i = 0; i < arr2->length; i++)
     {
-        if(arr1->A[i] != arr2->A[i]){
-            arr3->A[j] = arr2->A[i];
-            j++;
+        bool found = false;
+        for (int j = 0; j < arr1->length; j++)
+        {
+            if(arr2->A[i] == arr1->A[j]){
+                
+                found = true;
+                break;
+            }
         }
+        if(!found){
+            arr3->A[k++] = arr2->A[i];
+        }
+        
     }    
 
 }
@@ -33,12 +42,18 @@ void setUnionSorted(struct Array *arr1, struct Array *arr2, struct Array *arr3){
             arr3->A[k++] = arr1->A[i++];
         }
         else if(arr1->A[i] == arr2->A[j]){
-            i++;
+            arr3->A[k++] = arr1->A[i++];
             j++;
         }
         else{
-            arr3->A[k++] = arr1->A[j++];
+            arr3->A[k++] = arr2->A[j++];
         }
+    }
+    while(i < arr1->length){
+        arr3->A[k++] = arr1->A[i++];
+    }
+    while(j < arr2->length){
+        arr3->A[k++] = arr2->A[j++];
     }
     
     
