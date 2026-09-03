@@ -77,6 +77,22 @@ void setIntersection(struct Array *arr1, struct Array *arr2, struct Array *arr3)
     
 }
 
+void setIntersectionUnsorted(struct Array *arr1, struct Array *arr2, struct Array *arr3){
+    int k = 0;
+    for (int i = 0; i < arr1->length; i++)
+    {
+        for (int j = 0; j < arr2->length; j++)
+        {
+            if(arr1->A[i] == arr2->A[j]){
+                arr3->A[k++] = arr2->A[j];
+                break;
+            }
+        }
+        
+    }
+    
+}
+
 
 int main(){
 
