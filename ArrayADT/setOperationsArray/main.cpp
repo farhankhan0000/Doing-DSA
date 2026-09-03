@@ -55,7 +55,25 @@ void setUnionSorted(struct Array *arr1, struct Array *arr2, struct Array *arr3){
     while(j < arr2->length){
         arr3->A[k++] = arr2->A[j++];
     }
-    
+}
+
+void setIntersection(struct Array *arr1, struct Array *arr2, struct Array *arr3){
+    int i = 0;
+    int j = 0;
+    int k = 0;
+
+    while(i < arr1->length && j < arr2->length){
+        if(arr1->A[i] < arr2->A[j]){
+            i++;
+        }
+        else if(arr1->A[i] == arr2->A[j]){
+            arr3->A[k++] = arr1->A[i++];
+            j++;
+        }
+        else{
+            j++;
+        }
+    }
     
 }
 
